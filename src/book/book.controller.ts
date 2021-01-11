@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
 import { IBook } from './book.model';
 import { BookService } from './book.service';
 
@@ -15,6 +15,11 @@ export class BookController {
   @Get()
   findAll() {    
     return this.bookService.findAll() ;
+  }
+
+  @Get(':id')
+  findOne(@Param('id') id: string) {
+    return this.bookService.findOne(id);
   }
 
   

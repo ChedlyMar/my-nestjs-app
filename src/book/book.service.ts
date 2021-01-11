@@ -15,4 +15,9 @@ export class BookService {
     findAll() {
         return this.books;
     }
+
+    findOne(id){
+        const book = this.books.find(book => book.id=id);
+        return book;
+    }
 }
