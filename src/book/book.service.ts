@@ -17,7 +17,16 @@ export class BookService {
     }
 
     findOne(id){
-        const book = this.books.find(book => book.id=id);
+        const book = this.books.find(book => book.id==id);
         return book;
+    }
+
+    update(id:string, updateBook:IBook){
+        const index = this.books.findIndex(book => book.id == id);
+        this.books.splice(index,1,updateBook);
+    }
+    remove(id){
+        const index = this.books.findIndex(book => book.id == id);
+        this.books.splice(index,1);
     }
 }

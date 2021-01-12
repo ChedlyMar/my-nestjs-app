@@ -22,6 +22,14 @@ export class BookController {
     return this.bookService.findOne(id);
   }
 
-  
+  @Put(':id')
+  update(@Param('id') id: string, @Body() updateBook: IBook) {
+    this.bookService.update(id, updateBook);
+  }
+
+  @Delete(':id')
+  remove(@Param('id') id: string) {
+    this.bookService.remove(id);
+  }  
 
 }
